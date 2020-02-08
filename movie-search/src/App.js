@@ -1,18 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header.js';
+import Search from './components/Search.js';
+import 'semantic-ui-css/semantic.min.css';
+import { Card } from 'semantic-ui-react';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <Header/>
+          <Header title="Movie Search" />
+
       </header>
+      <section>
+      <Search/>
+      <Card/>
+      </section>
     </div>
   );
 }
