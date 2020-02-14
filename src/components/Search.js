@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 const Search = props => {
-  const [searchInput, setSearchValue] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const handleUserInputChange = e => {
-    console.log(e.target.value);
     if (e.target.value.length >= 3) {
-      setSearchValue(e.target.value);
-      props.search(searchInput);
+      setSearchInput(e.target.value);
+      console.log(searchInput);
+      props.search(e.target.value);
     }
   };
 

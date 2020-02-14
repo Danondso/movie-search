@@ -20,12 +20,12 @@ function App() {
       setErrorMessage(null);
       setLoading(false);
     })
-  });
+  }, []);
 
   const search = input => {
     setLoading(true);
     setErrorMessage(null);
-
+    input.replace('', '%20')
     fetch(`${BASE_URL}${input}`)
       .then(response => response.json())
       .then(resultJson => {
