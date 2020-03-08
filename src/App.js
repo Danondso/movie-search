@@ -1,36 +1,47 @@
 import React, { useState, useEffect } from "react";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
+
 import "./App.css";
 import Header from "./components/Header.js";
 import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
 import "semantic-ui-css/semantic.min.css";
 
-const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
-const DEFAULT_MOVIE_URL = "http://www.omdbapi.com/?apikey=&s=star";
-
+const BASE_URL = "http://www.omdbapi.com/?apikey=ec16652&s=";
+const DEFAULT_MOVIE_URL =
+  "http://www.omdbapi.com/?apikey=ec16652&s=star&page=1";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    fetch(`${DEFAULT_MOVIE_URL}`).then(response => response.json()).then(resultJson => {
-      setMovies(resultJson.Search);
-      setErrorMessage(null);
-      setLoading(false);
-    })
+    fetch(`${DEFAULT_MOVIE_URL}`)
+      .then(response => response.json())
+      .then(resultJson => {
+        setMovies(resultJson.Search);
+        setErrorMessage(null);
+        setLoading(false);
+      });
   }, []);
 
-  const search = input => {
+  const handleScrollToBottom = () => {
+    setPage(page + 1);
+    search("star", page);
+  };
+
+  useBottomScrollListener(handleScrollToBottom);
+
+  const search = (input, page) => {
     setLoading(true);
     setErrorMessage(null);
-    input.replace('', '%20')
-    fetch(`${BASE_URL}${input}`)
+    fetch(`${BASE_URL}${input}&page=${page}`)
       .then(response => response.json())
       .then(resultJson => {
         if (resultJson.Response === "True") {
-          setMovies(resultJson.Search);
+          setMovies([...movies, ...resultJson.Search]);
           setLoading(false);
         } else {
           setErrorMessage(resultJson.Error);
