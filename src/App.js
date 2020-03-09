@@ -29,10 +29,10 @@ function App() {
       .then(response => response.json())
       .then(resultJson => {
         if (resultJson.Response === "True") {
-          console.log("Got results for ", input);
           setMovies([...movies, ...resultJson.Search]);
           setLoading(false);
         } else {
+          //TODO infinite scroll isn't accommodating the fact that an error is returned when there's no movies for a page. 
           setErrorMessage(resultJson.Error);
           setLoading(false);
         }
@@ -51,6 +51,7 @@ function App() {
         <Search search={search} clearMovies={clearMovies} />
       </section>
       <section>
+        {/* Loading needs to be in its own div at the bottom */}
         {loading && !errorMessage ? (
           <span>loading...</span>
         ) : errorMessage ? (
