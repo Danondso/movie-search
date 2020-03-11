@@ -32,7 +32,7 @@ function App() {
           setMovies([...movies, ...resultJson.Search]);
           setLoading(false);
         } else {
-          //TODO infinite scroll isn't accommodating the fact that an error is returned when there's no movies for a page. 
+          //TODO infinite scroll isn't accommodating the fact that an error is returned when there's no movies for a page.
           setErrorMessage(resultJson.Error);
           setLoading(false);
         }
@@ -51,16 +51,14 @@ function App() {
         <Search search={search} clearMovies={clearMovies} />
       </section>
       <section>
-        {/* Loading needs to be in its own div at the bottom */}
-        {loading && !errorMessage ? (
-          <span>loading...</span>
-        ) : errorMessage ? (
+        {errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           movies.map((movie, index) => (
             <Movie key={`${index}-${movie.Title}`} movie={movie} />
           ))
         )}
+        {loading && !errorMessage ? <span>loading...</span> : null}
       </section>
     </div>
   );
