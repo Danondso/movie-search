@@ -6,20 +6,27 @@ import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
 import "semantic-ui-css/semantic.min.css";
 
-const BASE_URL = "http://www.omdbapi.com/?apikey=ec16652&s=";
+const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [totalResults, setTotalResults] = useState(0);
+
   const [movies, setMovies] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     setErrorMessage(null);
     setLoading(false);
+    if (movies.length === totalResults) {
+      setErrorMessage("End of results");
+      setLoading(false);
+    }
   }, []);
 
   const clearMovies = () => {
     setMovies([]);
+    setTotalResults(0);
   };
 
   const search = (input, page) => {
@@ -30,12 +37,11 @@ function App() {
       .then(resultJson => {
         if (resultJson.Response === "True") {
           setMovies([...movies, ...resultJson.Search]);
-          setLoading(false);
+          setTotalResults(resultJson.totalResults);
         } else {
-          //TODO infinite scroll isn't accommodating the fact that an error is returned when there's no movies for a page.
           setErrorMessage(resultJson.Error);
-          setLoading(false);
         }
+        setLoading(false);
       })
       .catch(error => {
         console.log("Unable to fetch data from OMDB.", error);
@@ -51,14 +57,14 @@ function App() {
         <Search search={search} clearMovies={clearMovies} />
       </section>
       <section>
-        {errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
+        {movies.map((movie, index) => (
+          <Movie key={`${index}-${movie.Title}`} movie={movie} />
+        ))}
+        {loading && !errorMessage ? (
+          <span>loading...</span>
         ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
+          <div className="errorMessage">{errorMessage}</div>
         )}
-        {loading && !errorMessage ? <span>loading...</span> : null}
       </section>
     </div>
   );
