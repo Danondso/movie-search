@@ -21,8 +21,10 @@ const Search = props => {
   };
 
   const handleScrollToBottom = () => {
-    setPage(page + 1);
-    props.search(searchInput, page);
+    const updatePageCount = page + 1;
+    // state update is async therefore you're not going to immediately be able to get the set value.
+    setPage(updatePageCount); 
+    props.search(searchInput, updatePageCount);
   };
 
   useBottomScrollListener(handleScrollToBottom);
