@@ -9,24 +9,26 @@ import "semantic-ui-css/semantic.min.css";
 const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [totalResults, setTotalResults] = useState(0);
-
+  const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [result, setResult] = useState(null);
+
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    setErrorMessage(null);
-    setLoading(false);
-    if (movies.length === totalResults) {
+    if (result === null) return;
+    if (movies.length === result.totalResults) {
       setErrorMessage("End of results");
+    } else {
+      result.Response === "True"
+        ? setMovies([...movies, ...result.Search])
+        : setErrorMessage(result.Error);
       setLoading(false);
     }
-  }, []);
+  }, [result]);
 
   const clearMovies = () => {
     setMovies([]);
-    setTotalResults(0);
   };
 
   const search = (input, page) => {
@@ -35,13 +37,7 @@ function App() {
     fetch(`${BASE_URL}${input}&page=${page}`)
       .then(response => response.json())
       .then(resultJson => {
-        if (resultJson.Response === "True") {
-          setMovies([...movies, ...resultJson.Search]);
-          setTotalResults(resultJson.totalResults);
-        } else {
-          setErrorMessage(resultJson.Error);
-        }
-        setLoading(false);
+        setResult(resultJson);
       })
       .catch(error => {
         console.log("Unable to fetch data from OMDB.", error);
