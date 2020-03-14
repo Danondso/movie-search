@@ -4,12 +4,15 @@ import "./App.css";
 import Header from "./components/Header.js";
 import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import "semantic-ui-css/semantic.min.css";
 
 const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [result, setResult] = useState(null);
 
@@ -27,7 +30,12 @@ function App() {
     }
   }, [result]);
 
+  useEffect(() => {
+    clearMovies();
+  }, [searchInput]);
+
   const clearMovies = () => {
+    setPage(1);
     setMovies([]);
   };
 
@@ -44,13 +52,31 @@ function App() {
       });
   };
 
+  const handleUserInputChange = e => {
+    if (e.target.value.length >= 3) {
+      setSearchInput(e.target.value);
+      search(e.target.value, page);
+    } else {
+      clearMovies();
+    }
+  };
+
+  const handleScrollToBottom = () => {
+    const updatePageCount = page + 1;
+    // state update is async therefore you're not going to immediately be able to get the set value.
+    setPage(updatePageCount);
+    search(searchInput, updatePageCount);
+  };
+
+  useBottomScrollListener(handleScrollToBottom);
+
   return (
     <div className="App">
       <header className="App-header">
         <Header title="Movie Search" />
       </header>
       <section>
-        <Search search={search} clearMovies={clearMovies} />
+        <Search handleUserInputChange={handleUserInputChange} />
       </section>
       <section>
         {movies.map((movie, index) => (
