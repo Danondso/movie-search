@@ -14,30 +14,12 @@ function App() {
   const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
-  const [result, setResult] = useState(null);
-
+  const [totalResults, setTotalResults] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    if (result === null) return;
-    if (movies.length === result.totalResults) {
-      setErrorMessage("End of results");
-    } else {
-      result.Response === "True"
-        ? setMovies([...movies, ...result.Search])
-        : setErrorMessage(result.Error);
-      setLoading(false);
-    }
-  }, [result]);
-
-  useEffect(() => {
-    clearMovies();
+    resetResults();
   }, [searchInput]);
-
-  const clearMovies = () => {
-    setPage(1);
-    setMovies([]);
-  };
 
   const search = (input, page) => {
     setLoading(true);
@@ -45,11 +27,15 @@ function App() {
     fetch(`${BASE_URL}${input}&page=${page}`)
       .then(response => response.json())
       .then(resultJson => {
-        setResult(resultJson);
+        if (resultJson.Response === "True") {
+          setMovies([...movies, ...resultJson.Search]);
+          if (movies.length === 0) setTotalResults(resultJson.totalResults);
+        }
       })
       .catch(error => {
         console.log("Unable to fetch data from OMDB.", error);
       });
+    setLoading(false);
   };
 
   const handleUserInputChange = e => {
@@ -57,11 +43,23 @@ function App() {
       setSearchInput(e.target.value);
       search(e.target.value, page);
     } else {
-      clearMovies();
+      resetResults();
     }
   };
 
+  const resetResults = () => {
+    setPage(1);
+    setMovies([]);
+    setTotalResults(0);
+    setErrorMessage("");
+  };
+
   const handleScrollToBottom = () => {
+    if (movies.length.toString() === totalResults) {
+      console.log("End of results reached");
+      setErrorMessage("End of results");
+      return;
+    }
     const updatePageCount = page + 1;
     // state update is async therefore you're not going to immediately be able to get the set value.
     setPage(updatePageCount);
