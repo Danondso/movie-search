@@ -59,7 +59,6 @@ function App() {
 
   const handleScrollToBottom = () => {
     if (movies.length.toString() === totalResults) {
-      console.log("End of results reached");
       setErrorMessage("End of results");
       return;
     }
