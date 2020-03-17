@@ -30,6 +30,9 @@ function App() {
         if (resultJson.Response === "True") {
           setMovies([...movies, ...resultJson.Search]);
           if (movies.length === 0) setTotalResults(resultJson.totalResults);
+        } else {
+          setErrorMessage(resultJson.Error);
+          setLoading(false);
         }
       })
       .catch(error => {
