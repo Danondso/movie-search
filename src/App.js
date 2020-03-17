@@ -1,46 +1,74 @@
 import React, { useState, useEffect } from "react";
+
 import "./App.css";
 import Header from "./components/Header.js";
 import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
+import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import "semantic-ui-css/semantic.min.css";
 
 const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
-const DEFAULT_MOVIE_URL = "http://www.omdbapi.com/?apikey=&s=star";
-
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
+  const [totalResults, setTotalResults] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    fetch(`${DEFAULT_MOVIE_URL}`).then(response => response.json()).then(resultJson => {
-      setMovies(resultJson.Search);
-      setErrorMessage(null);
-      setLoading(false);
-    })
-  }, []);
+    resetResults();
+  }, [searchInput]);
 
-  const search = input => {
+  const search = (input, page) => {
     setLoading(true);
     setErrorMessage(null);
-    input.replace('', '%20')
-    fetch(`${BASE_URL}${input}`)
+    fetch(`${BASE_URL}${input}&page=${page}`)
       .then(response => response.json())
       .then(resultJson => {
         if (resultJson.Response === "True") {
-          setMovies(resultJson.Search);
-          setLoading(false);
+          setMovies([...movies, ...resultJson.Search]);
+          if (movies.length === 0) setTotalResults(resultJson.totalResults);
         } else {
           setErrorMessage(resultJson.Error);
           setLoading(false);
         }
       })
       .catch(error => {
-        console.log("unable to fetch data from OMDB.", error);
+        console.log("Unable to fetch data from OMDB.", error);
       });
+    setLoading(false);
   };
+
+  const handleUserInputChange = e => {
+    if (e.target.value.length >= 3) {
+      setSearchInput(e.target.value);
+      search(e.target.value, page);
+    } else {
+      resetResults();
+    }
+  };
+
+  const resetResults = () => {
+    setPage(1);
+    setMovies([]);
+    setTotalResults(0);
+    setErrorMessage("");
+  };
+
+  const handleScrollToBottom = () => {
+    if (movies.length.toString() === totalResults) {
+      setErrorMessage("End of results");
+      return;
+    }
+    const updatePageCount = page + 1;
+    // state update is async therefore you're not going to immediately be able to get the set value.
+    setPage(updatePageCount);
+    search(searchInput, updatePageCount);
+  };
+
+  useBottomScrollListener(handleScrollToBottom);
 
   return (
     <div className="App">
@@ -48,17 +76,16 @@ function App() {
         <Header title="Movie Search" />
       </header>
       <section>
-        <Search search={search} />
+        <Search handleUserInputChange={handleUserInputChange} />
       </section>
       <section>
+        {movies.map((movie, index) => (
+          <Movie key={`${index}-${movie.Title}`} movie={movie} />
+        ))}
         {loading && !errorMessage ? (
           <span>loading...</span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
         ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie} />
-          ))
+          <div className="errorMessage">{errorMessage}</div>
         )}
       </section>
     </div>

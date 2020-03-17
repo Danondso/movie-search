@@ -1,21 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import "./Search.css";
 
-const Search = props => {
-  const [searchInput, setSearchInput] = useState("");
-
-  const handleUserInputChange = e => {
-    if (e.target.value.length >= 3) {
-      setSearchInput(e.target.value);
-      console.log(searchInput);
-      props.search(e.target.value);
-    }
-  };
-
+const Search = ({ handleUserInputChange }) => {
   return (
-    <input
-      placeholder="movie-search..."
-      onChange={handleUserInputChange}
-    ></input>
+    <div className="search-input">
+      <input
+        placeholder="movie-search..."
+        onChange={handleUserInputChange}
+      ></input>
+    </div>
   );
 };
 
