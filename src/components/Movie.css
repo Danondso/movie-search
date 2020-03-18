@@ -1,5 +1,10 @@
 .movie {
-    width: 20%;
-    height: 20%;
-    padding: 1rem;
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+
+.title {
+  padding: 1rem;
+  font-size: 1.5vw;
 }

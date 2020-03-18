@@ -4,6 +4,8 @@ import "./App.css";
 import Header from "./components/Header.js";
 import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
+import ClipLoader from "react-spinners/ClipLoader";
+import Grid from "@material-ui/core/Grid";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import "semantic-ui-css/semantic.min.css";
 
@@ -30,6 +32,7 @@ function App() {
         if (resultJson.Response === "True") {
           setMovies([...movies, ...resultJson.Search]);
           if (movies.length === 0) setTotalResults(resultJson.totalResults);
+          setLoading(false);
         } else {
           setErrorMessage(resultJson.Error);
           setLoading(false);
@@ -38,7 +41,6 @@ function App() {
       .catch(error => {
         console.log("Unable to fetch data from OMDB.", error);
       });
-    setLoading(false);
   };
 
   const handleUserInputChange = e => {
@@ -72,18 +74,28 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Header title="Movie Search" />
-      </header>
-      <section>
+      <Header title="Movie Search" />
+      <section className="input">
         <Search handleUserInputChange={handleUserInputChange} />
       </section>
-      <section>
-        {movies.map((movie, index) => (
-          <Movie key={`${index}-${movie.Title}`} movie={movie} />
-        ))}
+      <section className="list">
+        <Grid
+          container
+          direction="row"
+          spacing={3}
+          justify="center"
+          alignItems="center"
+        >
+          {movies.map((movie, index) => (
+            <Grid item xs={3} md={12} lg={4}>
+              <Movie key={`${index}-${movie.Title}`} movie={movie} />
+            </Grid>
+          ))}
+        </Grid>
         {loading && !errorMessage ? (
-          <span>loading...</span>
+          <span>
+            <ClipLoader size={50} color={"#282c34"} loading={true} />
+          </span>
         ) : (
           <div className="errorMessage">{errorMessage}</div>
         )}

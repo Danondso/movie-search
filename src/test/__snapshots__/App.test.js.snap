@@ -5,13 +5,13 @@ exports[`App renders 1`] = `
   className="App"
 >
   <header
-    className="App-header"
+    className="header"
   >
-    <header>
-      Movie Search
-    </header>
+    Movie Search
   </header>
-  <section>
+  <section
+    className="input"
+  >
     <div
       className="search-input"
     >
@@ -21,7 +21,12 @@ exports[`App renders 1`] = `
       />
     </div>
   </section>
-  <section>
+  <section
+    className="list"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
+    />
     <div
       className="errorMessage"
     />
