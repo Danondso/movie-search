@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search looks correct 1`] = `
+<div
+  className="search-input"
+>
+  <input
+    placeholder="movie-search..."
+  />
+</div>
+`;

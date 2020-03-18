@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <header>
+      Movie Search
+    </header>
+  </header>
+  <section>
+    <div
+      className="search-input"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="movie-search..."
+      />
+    </div>
+  </section>
+  <section>
+    <div
+      className="errorMessage"
+    />
+  </section>
+</div>
+`;

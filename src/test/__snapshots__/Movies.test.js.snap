@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie renders with passed in data 1`] = `
+<img
+  alt="A fake movie"
+  className="movie"
+  src="https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
+/>
+`;
+
+exports[`Movie without poster renders 1`] = `
+<img
+  alt="Star Wars: Episode XX - Return of the Franchise"
+  className="movie"
+  src="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"
+/>
+`;
