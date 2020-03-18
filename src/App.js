@@ -7,7 +7,7 @@ import Movie from "./components/Movie.js";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import "semantic-ui-css/semantic.min.css";
 
-const BASE_URL = "http://www.omdbapi.com/?apikey=&s=";
+const BASE_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`;
 
 function App() {
   const [loading, setLoading] = useState(false);
