@@ -8,5 +8,4 @@ test('App renders', () => {
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-    
 });
