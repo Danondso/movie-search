@@ -87,15 +87,15 @@ function App() {
           alignItems="center"
         >
           {movies.map((movie, index) => (
-            <Grid item xs={3} md={12} lg={4}>
+            <Grid item xs={12} md={6} lg={4}>
               <Movie key={`${index}-${movie.Title}`} movie={movie} />
             </Grid>
           ))}
         </Grid>
+      </section>
+      <section className="loading-message">
         {loading && !errorMessage ? (
-          <span>
-            <ClipLoader size={50} color={"#282c34"} loading={true} />
-          </span>
+          <ClipLoader size={50} color={"#282c34"} loading={true} />
         ) : (
           <div className="errorMessage">{errorMessage}</div>
         )}

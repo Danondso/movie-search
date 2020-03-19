@@ -27,6 +27,10 @@ exports[`App renders 1`] = `
     <div
       className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
     />
+  </section>
+  <section
+    className="loading-message"
+  >
     <div
       className="errorMessage"
     />

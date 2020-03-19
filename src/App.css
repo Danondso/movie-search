@@ -9,3 +9,7 @@
 .list {
   width: 100%;
 }
+
+.loading-message {
+  padding-top: 2vh;
+}
