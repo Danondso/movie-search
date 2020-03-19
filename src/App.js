@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="App">
       <Header title="Movie Search" />
-      <section className="input">
+      <section className="padding-b-2">
         <Search handleUserInputChange={handleUserInputChange} />
       </section>
       <section className="list">
