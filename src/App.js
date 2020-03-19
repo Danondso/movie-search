@@ -93,11 +93,13 @@ function App() {
           ))}
         </Grid>
       </section>
-      <section className="loading-message">
+      <section className="padding-t-2">
         {loading && !errorMessage ? (
-          <ClipLoader size={50} color={"#282c34"} loading={true} />
+          <div className="padding-t-2">
+            <ClipLoader size={50} color={"#282c34"} loading={true} />
+          </div>
         ) : (
-          <div className="errorMessage">{errorMessage}</div>
+          <div className="padding-t-2">{errorMessage}</div>
         )}
       </section>
     </div>

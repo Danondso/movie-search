@@ -29,10 +29,10 @@ exports[`App renders 1`] = `
     />
   </section>
   <section
-    className="loading-message"
+    className="padding-t-2"
   >
     <div
-      className="errorMessage"
+      className="padding-t-2"
     />
   </section>
 </div>
