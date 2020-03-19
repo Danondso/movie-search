@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7ec4d68c-6e12-42f1-8593-c68f7d1c3f2f/deploy-status)](https://app.netlify.com/sites/pedantic-fermat-392953/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
