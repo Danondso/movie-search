@@ -56,9 +56,9 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
                   ></img>
                 )}
               </Grid>
-              <Grid item xs={8} sm={4} lg={6} container>
+              <Grid item xs={8} sm={8} lg={6} container>
                 <Grid item xs container direction="column" spacing={2}>
-                  <Grid item xs={12} sm={12} lg={12}>
+                  <Grid item xs={12} sm={12} lg={6}>
                     <h2>{movieDetail.Title}</h2>
                     <p><strong>Country: </strong>{movieDetail.Country}</p>
                     <p><strong>Language: </strong> {movieDetail.Language}</p>
