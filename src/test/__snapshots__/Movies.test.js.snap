@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie renders with passed in data 1`] = `
-<div
-  className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
->
-  <div
-    className="MuiCardContent-root"
-  >
+<WithStyles(ForwardRef(Card))>
+  <WithStyles(ForwardRef(CardContent))>
     <img
       alt="A fake movie"
       className="movie"
@@ -17,17 +13,13 @@ exports[`Movie renders with passed in data 1`] = `
     >
       A fake movie
     </div>
-  </div>
-</div>
+  </WithStyles(ForwardRef(CardContent))>
+</WithStyles(ForwardRef(Card))>
 `;
 
 exports[`Movie without poster renders 1`] = `
-<div
-  className="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
->
-  <div
-    className="MuiCardContent-root"
-  >
+<WithStyles(ForwardRef(Card))>
+  <WithStyles(ForwardRef(CardContent))>
     <img
       alt="Star Wars: Episode XX - Return of the Franchise"
       className="movie"
@@ -38,6 +30,6 @@ exports[`Movie without poster renders 1`] = `
     >
       Star Wars: Episode XX - Return of the Franchise
     </div>
-  </div>
-</div>
+  </WithStyles(ForwardRef(CardContent))>
+</WithStyles(ForwardRef(Card))>
 `;

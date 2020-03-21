@@ -1,6 +1,10 @@
 import React from "react";
 import Movie from "../components/Movie";
-import renderer from "react-test-renderer";
+import Adapter from "enzyme-adapter-react-16";
+import { configure, shallow } from "enzyme";
+import toJson from "enzyme-to-json";
+
+configure({ adapter: new Adapter() });
 
 const movieResult = {
   Title: "A fake movie",
@@ -20,13 +24,13 @@ const movieResultNoResult = {
 };
 
 test("Movie renders with passed in data", () => {
-  const component = renderer.create(<Movie movie={movieResult} />);
-  let tree = component.toJSON();
+  const component = shallow(<Movie movie={movieResult} />);
+  let tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });
 
 test("Movie without poster renders", () => {
-  const component = renderer.create(<Movie movie={movieResultNoResult} />);
-  let tree = component.toJSON();
+  const component = shallow(<Movie movie={movieResultNoResult} />);
+  let tree = toJson(component);
   expect(tree).toMatchSnapshot();
 });

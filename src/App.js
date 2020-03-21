@@ -6,16 +6,20 @@ import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
 import ClipLoader from "react-spinners/ClipLoader";
 import Grid from "@material-ui/core/Grid";
+import MovieModal from "./components/MovieModal.js";
+
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import "semantic-ui-css/semantic.min.css";
 
-const BASE_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`;
+const BASE_URL = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
+  const [movieDetail, setMovieDetail] = useState(null);
+  const [open, setOpen] = useState(false);
   const [totalResults, setTotalResults] = useState(0);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -26,7 +30,7 @@ function App() {
   const search = (input, page) => {
     setLoading(true);
     setErrorMessage(null);
-    fetch(`${BASE_URL}${input}&page=${page}`)
+    fetch(`${BASE_URL}&s=${input}&page=${page}`)
       .then(response => response.json())
       .then(resultJson => {
         if (resultJson.Response === "True") {
@@ -36,6 +40,21 @@ function App() {
         } else {
           setErrorMessage(resultJson.Error);
           setLoading(false);
+        }
+      })
+      .catch(error => {
+        console.log("Unable to fetch data from OMDB.", error);
+      });
+  };
+
+  const searchById = id => {
+    setLoading(true);
+    setErrorMessage(null);
+    fetch(`${BASE_URL}&i=${id}&plot=full`)
+      .then(response => response.json())
+      .then(resultJson => {
+        if (resultJson.Response === "True") {
+          setMovieDetail(resultJson);
         }
       })
       .catch(error => {
@@ -57,6 +76,16 @@ function App() {
     setMovies([]);
     setTotalResults(0);
     setErrorMessage("");
+  };
+
+  const handleOpen = id => {
+    console.log(id);
+    searchById(id);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleScrollToBottom = () => {
@@ -88,10 +117,22 @@ function App() {
         >
           {movies.map((movie, index) => (
             <Grid item xs={12} md={6} lg={4}>
-              <Movie key={`${index}-${movie.Title}`} movie={movie} />
+              <button
+                className="modal-button"
+                onClick={() => handleOpen(movie.imdbID)}
+              >
+                <Movie key={`${index}-${movie.Title}`} movie={movie} />
+              </button>
             </Grid>
           ))}
         </Grid>
+      </section>
+      <section>
+        <MovieModal
+          movieDetail={movieDetail}
+          open={open}
+          handleClose={handleClose}
+        />
       </section>
       <section className="padding-t-2">
         {loading && !errorMessage ? (
