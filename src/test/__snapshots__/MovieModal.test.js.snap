@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie renders with passed in data 1`] = `
-<ForwardRef(Modal)
+<WithStyles(ForwardRef(Dialog))
   BackdropComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
@@ -327,6 +327,7 @@ exports[`Movie renders with passed in data 1`] = `
   className="makeStyles-modal-1"
   closeAfterTransition={true}
   justify="center"
+  modal={true}
   onClose={[Function]}
   open={true}
 >
@@ -354,7 +355,7 @@ exports[`Movie renders with passed in data 1`] = `
           container={true}
           item={true}
           lg={6}
-          sm={4}
+          sm={8}
           xs={8}
         >
           <WithStyles(ForwardRef(Grid))
@@ -366,8 +367,6 @@ exports[`Movie renders with passed in data 1`] = `
           >
             <WithStyles(ForwardRef(Grid))
               item={true}
-              lg={12}
-              sm={12}
               xs={12}
             >
               <h2>
@@ -377,28 +376,36 @@ exports[`Movie renders with passed in data 1`] = `
                 <strong>
                   Country: 
                 </strong>
-                USA
+                <p>
+                  USA
+                </p>
               </p>
               <p>
                 <strong>
                   Language: 
                 </strong>
                  
-                English
+                <p>
+                  English
+                </p>
               </p>
               <p>
                 <strong>
                   Year: 
                 </strong>
                  
-                1977
+                <p>
+                  1977
+                </p>
               </p>
               <p>
                 <strong>
                   Genre: 
                 </strong>
                  
-                Action, Adventure, Fantasy, Sci-Fi
+                <p>
+                  Action, Adventure, Fantasy, Sci-Fi
+                </p>
               </p>
               <p>
                 <strong>
@@ -407,26 +414,25 @@ exports[`Movie renders with passed in data 1`] = `
                  
                 George Lucas
               </p>
-              <WithStyles(ForwardRef(Grid))
-                container={true}
-                item={true}
-                lg={6}
-                sm={12}
-                xs={12}
-              >
-                The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
-              </WithStyles(ForwardRef(Grid))>
+              <p>
+                <strong>
+                  Plot: 
+                </strong>
+                <p>
+                  The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
+                </p>
+              </p>
             </WithStyles(ForwardRef(Grid))>
           </WithStyles(ForwardRef(Grid))>
         </WithStyles(ForwardRef(Grid))>
       </WithStyles(ForwardRef(Grid))>
     </div>
   </ForwardRef(Fade)>
-</ForwardRef(Modal)>
+</WithStyles(ForwardRef(Dialog))>
 `;
 
 exports[`Movie without poster renders 1`] = `
-<ForwardRef(Modal)
+<WithStyles(ForwardRef(Dialog))
   BackdropComponent={
     Object {
       "$$typeof": Symbol(react.forward_ref),
@@ -752,6 +758,7 @@ exports[`Movie without poster renders 1`] = `
   className="makeStyles-modal-1"
   closeAfterTransition={true}
   justify="center"
+  modal={true}
   onClose={[Function]}
   open={true}
 >
@@ -779,7 +786,7 @@ exports[`Movie without poster renders 1`] = `
           container={true}
           item={true}
           lg={6}
-          sm={4}
+          sm={8}
           xs={8}
         >
           <WithStyles(ForwardRef(Grid))
@@ -791,8 +798,6 @@ exports[`Movie without poster renders 1`] = `
           >
             <WithStyles(ForwardRef(Grid))
               item={true}
-              lg={12}
-              sm={12}
               xs={12}
             >
               <h2>
@@ -802,28 +807,36 @@ exports[`Movie without poster renders 1`] = `
                 <strong>
                   Country: 
                 </strong>
-                USA
+                <p>
+                  USA
+                </p>
               </p>
               <p>
                 <strong>
                   Language: 
                 </strong>
                  
-                English
+                <p>
+                  English
+                </p>
               </p>
               <p>
                 <strong>
                   Year: 
                 </strong>
                  
-                1977
+                <p>
+                  1977
+                </p>
               </p>
               <p>
                 <strong>
                   Genre: 
                 </strong>
                  
-                Action, Adventure, Fantasy, Sci-Fi
+                <p>
+                  Action, Adventure, Fantasy, Sci-Fi
+                </p>
               </p>
               <p>
                 <strong>
@@ -832,20 +845,19 @@ exports[`Movie without poster renders 1`] = `
                  
                 George Lucas
               </p>
-              <WithStyles(ForwardRef(Grid))
-                container={true}
-                item={true}
-                lg={6}
-                sm={12}
-                xs={12}
-              >
-                The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
-              </WithStyles(ForwardRef(Grid))>
+              <p>
+                <strong>
+                  Plot: 
+                </strong>
+                <p>
+                  The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
+                </p>
+              </p>
             </WithStyles(ForwardRef(Grid))>
           </WithStyles(ForwardRef(Grid))>
         </WithStyles(ForwardRef(Grid))>
       </WithStyles(ForwardRef(Grid))>
     </div>
   </ForwardRef(Fade)>
-</ForwardRef(Modal)>
+</WithStyles(ForwardRef(Dialog))>
 `;

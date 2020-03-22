@@ -1,6 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 
@@ -10,7 +12,8 @@ const useStyles = makeStyles(theme => ({
   modal: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -28,10 +31,11 @@ const useStyles = makeStyles(theme => ({
 const MovieModal = ({ movieDetail, open, handleClose }) => {
   const classes = useStyles();
   return (
-    <Modal
+    <Dialog
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={open}
+      modal={true}
       className={classes.modal}
       onClose={handleClose}
       closeAfterTransition
@@ -58,16 +62,28 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
               </Grid>
               <Grid item xs={8} sm={8} lg={6} container>
                 <Grid item xs container direction="column" spacing={2}>
-                  <Grid item xs={12} sm={12} lg={6}>
+                  <Grid item xs={12}>
                     <h2>{movieDetail.Title}</h2>
-                    <p><strong>Country: </strong>{movieDetail.Country}</p>
-                    <p><strong>Language: </strong> {movieDetail.Language}</p>
-                    <p><strong>Year: </strong> {movieDetail.Year}</p>
-                    <p><strong>Genre: </strong> {movieDetail.Genre}</p>
-                    <p><strong>Director: </strong> {movieDetail.Director}</p>
-                    <Grid item xs={12} sm={12} lg={6} container>
-                      {movieDetail.Plot}
-                    </Grid>
+                    <p>
+                      <strong>Country: </strong>
+                      <p>{movieDetail.Country}</p>
+                    </p>
+                    <p>
+                      <strong>Language: </strong> <p>{movieDetail.Language}</p>
+                    </p>
+                    <p>
+                      <strong>Year: </strong> <p>{movieDetail.Year}</p>
+                    </p>
+                    <p>
+                      <strong>Genre: </strong> <p>{movieDetail.Genre}</p>
+                    </p>
+                    <p>
+                      <strong>Director: </strong> {movieDetail.Director}
+                    </p>
+                    <p>
+                      <strong>Plot: </strong>
+                      <p>{movieDetail.Plot}</p>
+                    </p>
                   </Grid>
                 </Grid>
               </Grid>
@@ -77,7 +93,7 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
           )}
         </div>
       </Fade>
-    </Modal>
+    </Dialog>
   );
 };
 
