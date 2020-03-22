@@ -1,10 +1,17 @@
 .movie {
-  max-width: 100%;
   height: auto;
+  max-height: 400px;
+  width: auto;
+  max-width: 250px;
   padding: 1rem;
 }
 
+.movie-container {
+  width: 100%;
+}
+
 .title {
+  max-width: 20rem;
   padding: 1rem;
   font-size: 1.95rem;
 }
