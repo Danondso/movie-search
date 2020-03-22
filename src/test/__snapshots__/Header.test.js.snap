@@ -2,6 +2,6 @@
 
 exports[`Search renders 1`] = `
 <header
-  className="header"
+  className="makeStyles-header-1"
 />
 `;

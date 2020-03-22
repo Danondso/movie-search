@@ -5,7 +5,7 @@ exports[`App renders 1`] = `
   className="App"
 >
   <header
-    className="header"
+    className="makeStyles-header-1"
   >
     Movie Search
   </header>
@@ -13,7 +13,7 @@ exports[`App renders 1`] = `
     className="padding-b-2"
   >
     <div
-      className="search-input"
+      className="makeStyles-search-input-2"
     >
       <input
         onChange={[Function]}

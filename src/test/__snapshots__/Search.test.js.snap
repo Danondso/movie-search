@@ -2,7 +2,7 @@
 
 exports[`Search looks correct 1`] = `
 <div
-  className="search-input"
+  className="makeStyles-search-input-1"
 >
   <input
     placeholder="movie-search..."
