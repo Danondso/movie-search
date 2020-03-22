@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./App.css";
 import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 import Search from "./components/Search.js";
 import Movie from "./components/Movie.js";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -67,6 +68,7 @@ function App() {
       setSearchInput(e.target.value);
       search(e.target.value, page);
     } else {
+      setSearchInput("");
       resetResults();
     }
   };
@@ -89,14 +91,16 @@ function App() {
   };
 
   const handleScrollToBottom = () => {
-    if (movies.length.toString() === totalResults) {
-      setErrorMessage("End of results");
-      return;
+    if (searchInput) {
+      if (movies.length.toString() === totalResults) {
+        setErrorMessage("End of results");
+        return;
+      }
+      const updatePageCount = page + 1;
+      // state update is async therefore you're not going to immediately be able to get the set value.
+      setPage(updatePageCount);
+      search(searchInput, updatePageCount);
     }
-    const updatePageCount = page + 1;
-    // state update is async therefore you're not going to immediately be able to get the set value.
-    setPage(updatePageCount);
-    search(searchInput, updatePageCount);
   };
 
   useBottomScrollListener(handleScrollToBottom);
@@ -143,6 +147,7 @@ function App() {
           <div className="padding-t-2">{errorMessage}</div>
         )}
       </section>
+      <Footer />
     </div>
   );
 }

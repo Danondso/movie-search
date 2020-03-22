@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search renders 1`] = `
+<footer
+  className="makeStyles-footer-1"
+>
+  <div
+    className="makeStyles-footerTextContainer-2"
+  >
+    <span>
+      Created by 
+    </span>
+    <a
+      href="https://github.com/Danondso/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Dublin Anondson
+    </a>
+  </div>
+</footer>
+`;
