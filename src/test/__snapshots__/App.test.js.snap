@@ -36,5 +36,23 @@ exports[`App renders 1`] = `
       className="padding-t-2"
     />
   </section>
+  <footer
+    className="makeStyles-footer-124"
+  >
+    <div
+      className="makeStyles-footerTextContainer-125"
+    >
+      <span>
+        Created by 
+      </span>
+      <a
+        href="https://github.com/Danondso/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Dublin Anondson
+      </a>
+    </div>
+  </footer>
 </div>
 `;
