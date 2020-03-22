@@ -1,11 +1,15 @@
 import React from 'react';
 import Search from '../components/Search';
-import renderer from 'react-test-renderer';
+import Adapter from "enzyme-adapter-react-16";
+import { configure, shallow } from "enzyme";
+import toJson from "enzyme-to-json";
+
+configure({ adapter: new Adapter() });
 
 test('Search looks correct', () => {
-    const component = renderer.create(
+    const component = shallow(
         <Search />
     );
-    let tree = component.toJSON();
+    let tree = toJson(component);
     expect(tree).toMatchSnapshot();
 });

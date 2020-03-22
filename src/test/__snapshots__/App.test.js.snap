@@ -28,6 +28,7 @@ exports[`App renders 1`] = `
       className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-center MuiGrid-justify-xs-center"
     />
   </section>
+  <section />
   <section
     className="padding-t-2"
   >
