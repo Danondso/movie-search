@@ -1,9 +1,16 @@
 import React from "react";
-import "./Search.css";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  "search-input": {
+    paddingTop: "1rem"
+  }
+}));
 
 const Search = ({ handleUserInputChange }) => {
+  const classes = useStyles();
   return (
-    <div className="search-input">
+    <div className={classes["search-input"]}>
       <input
         placeholder="movie-search..."
         onChange={handleUserInputChange}

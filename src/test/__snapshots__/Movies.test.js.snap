@@ -5,11 +5,11 @@ exports[`Movie renders with passed in data 1`] = `
   <WithStyles(ForwardRef(CardContent))>
     <img
       alt="A fake movie"
-      className="movie"
+      className="makeStyles-movie-1"
       src="https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
     />
     <div
-      className="title"
+      className="makeStyles-title-2"
     >
       A fake movie
     </div>
@@ -22,11 +22,11 @@ exports[`Movie without poster renders 1`] = `
   <WithStyles(ForwardRef(CardContent))>
     <img
       alt="Star Wars: Episode XX - Return of the Franchise"
-      className="movie"
+      className="makeStyles-movie-1"
       src="https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg"
     />
     <div
-      className="title"
+      className="makeStyles-title-2"
     >
       Star Wars: Episode XX - Return of the Franchise
     </div>
