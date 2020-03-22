@@ -1,5 +1,15 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7ec4d68c-6e12-42f1-8593-c68f7d1c3f2f/deploy-status)](https://app.netlify.com/sites/pedantic-fermat-392953/deploys)
 
+A movie search application written in React. Inspired by this [post](https://dev.to/simonholdorf/9-projects-you-can-do-to-become-a-frontend-master-in-2020-n2h) on dev. Additionally, there's some extra functionality in here. 
+Including: 
+- Infinite Scroll
+- Type to search
+- A movie details modal
+
+## Setup
+You will need to create a .env file and include the following env variable: **REACT_APP_API_KEY**.
+You will also need to apply for an api key for the [OMDB API](https://www.omdbapi.com/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
