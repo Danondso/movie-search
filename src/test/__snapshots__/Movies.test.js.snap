@@ -10,6 +10,7 @@ exports[`Movie renders with passed in data 1`] = `
     />
     <div
       className="makeStyles-title-2"
+      key="A fake movie"
     >
       A fake movie
     </div>
@@ -27,6 +28,7 @@ exports[`Movie without poster renders 1`] = `
     />
     <div
       className="makeStyles-title-2"
+      key="Star Wars: Episode XX - Return of the Franchise"
     >
       Star Wars: Episode XX - Return of the Franchise
     </div>

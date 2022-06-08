@@ -17,7 +17,6 @@ exports[`Movie renders with passed in data 1`] = `
         },
         "render": [Function],
       },
-      "displayName": "WithStyles(ForwardRef(Backdrop))",
       "options": Object {
         "defaultTheme": Object {
           "breakpoints": Object {
@@ -372,55 +371,46 @@ exports[`Movie renders with passed in data 1`] = `
               <h2>
                 Star Wars: Episode IV - A New Hope
               </h2>
+              <strong>
+                Country: 
+              </strong>
               <p>
-                <strong>
-                  Country: 
-                </strong>
-                <p>
-                  USA
-                </p>
+                USA
               </p>
+              <strong>
+                Language: 
+              </strong>
+               
               <p>
-                <strong>
-                  Language: 
-                </strong>
-                 
-                <p>
-                  English
-                </p>
+                English
               </p>
+              <strong>
+                Year: 
+              </strong>
+               
               <p>
-                <strong>
-                  Year: 
-                </strong>
-                 
-                <p>
-                  1977
-                </p>
+                1977
               </p>
+              <strong>
+                Genre: 
+              </strong>
+               
               <p>
-                <strong>
-                  Genre: 
-                </strong>
-                 
-                <p>
-                  Action, Adventure, Fantasy, Sci-Fi
-                </p>
+                Action, Adventure, Fantasy, Sci-Fi
               </p>
+              <strong>
+                Director: 
+              </strong>
+               
               <p>
-                <strong>
-                  Director: 
-                </strong>
-                 
                 George Lucas
               </p>
+              <strong>
+                Plot: 
+              </strong>
+               
               <p>
-                <strong>
-                  Plot: 
-                </strong>
-                <p>
-                  The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
-                </p>
+                The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
               </p>
             </WithStyles(ForwardRef(Grid))>
           </WithStyles(ForwardRef(Grid))>
@@ -448,7 +438,6 @@ exports[`Movie without poster renders 1`] = `
         },
         "render": [Function],
       },
-      "displayName": "WithStyles(ForwardRef(Backdrop))",
       "options": Object {
         "defaultTheme": Object {
           "breakpoints": Object {
@@ -803,55 +792,46 @@ exports[`Movie without poster renders 1`] = `
               <h2>
                 Star Wars: Episode IV - A New Hope
               </h2>
+              <strong>
+                Country: 
+              </strong>
               <p>
-                <strong>
-                  Country: 
-                </strong>
-                <p>
-                  USA
-                </p>
+                USA
               </p>
+              <strong>
+                Language: 
+              </strong>
+               
               <p>
-                <strong>
-                  Language: 
-                </strong>
-                 
-                <p>
-                  English
-                </p>
+                English
               </p>
+              <strong>
+                Year: 
+              </strong>
+               
               <p>
-                <strong>
-                  Year: 
-                </strong>
-                 
-                <p>
-                  1977
-                </p>
+                1977
               </p>
+              <strong>
+                Genre: 
+              </strong>
+               
               <p>
-                <strong>
-                  Genre: 
-                </strong>
-                 
-                <p>
-                  Action, Adventure, Fantasy, Sci-Fi
-                </p>
+                Action, Adventure, Fantasy, Sci-Fi
               </p>
+              <strong>
+                Director: 
+              </strong>
+               
               <p>
-                <strong>
-                  Director: 
-                </strong>
-                 
                 George Lucas
               </p>
+              <strong>
+                Plot: 
+              </strong>
+               
               <p>
-                <strong>
-                  Plot: 
-                </strong>
-                <p>
-                  The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
-                </p>
+                The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.
               </p>
             </WithStyles(ForwardRef(Grid))>
           </WithStyles(ForwardRef(Grid))>
