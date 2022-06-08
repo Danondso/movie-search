@@ -33,7 +33,7 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={open}
-      modal={true}
+      modal="true"
       className={classes.modal}
       onClose={handleClose}
       closeAfterTransition
