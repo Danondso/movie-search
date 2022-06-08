@@ -16,13 +16,28 @@ Sentry.init({
       maskAllInputs: false, // Default is true
     },
   }),],
+  initialScope: {
+    tag: {
+      'test-tag': 'test-value',
+    }
+  },
+  user: {
+    id: '1868582', email: 'dublin.anondson@thisdot.co',
+  },
   autoSessionTracking :true,
-
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 });
+
+Sentry.setUser({
+  id: 'veryfakeverybadtest_id',
+  email: 'dublin.anondson@thisdot.co',
+  username: 'dublin.anondson',
+  url: 'http://localhost:3000',
+  ip_address: '127.0.0.1'
+})
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
