@@ -97,7 +97,6 @@ function App() {
         return;
       }
       const updatePageCount = page + 1;
-      // state update is async therefore you're not going to immediately be able to get the set value.
       setPage(updatePageCount);
       search(searchInput, updatePageCount);
     }
@@ -116,11 +115,10 @@ function App() {
           container
           direction="row"
           spacing={3}
-          justify="center"
           alignItems="center"
         >
           {movies.map((movie, index) => (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item xs={12} md={6} lg={4} key={index}>
               <button
                 className="modal-button"
                 onClick={() => handleOpen(movie.imdbID)}
@@ -140,11 +138,11 @@ function App() {
       </section>
       <section className="padding-t-2">
         {loading && !errorMessage ? (
-          <div className="padding-t-2">
+          <div key='loading-div' className="padding-t-2">
             <ClipLoader size={50} color={"#282c34"} loading={true} />
           </div>
         ) : (
-          <div className="padding-t-2">{errorMessage}</div>
+          <div key='loading-error-msg-div' className="padding-t-2">{errorMessage}</div>
         )}
       </section>
       <Footer />

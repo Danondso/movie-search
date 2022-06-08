@@ -61,27 +61,15 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
               <Grid item xs={8} sm={8} lg={6} container>
                 <Grid item xs container direction="column" spacing={2}>
                   <Grid item xs={12}>
-                    <h2>{movieDetail.Title}</h2>
-                    <p>
+                    <h2>{movieDetail.Title}</h2>               
                       <strong>Country: </strong>
                       <p>{movieDetail.Country}</p>
-                    </p>
-                    <p>
-                      <strong>Language: </strong> <p>{movieDetail.Language}</p>
-                    </p>
-                    <p>
-                      <strong>Year: </strong> <p>{movieDetail.Year}</p>
-                    </p>
-                    <p>
-                      <strong>Genre: </strong> <p>{movieDetail.Genre}</p>
-                    </p>
-                    <p>
-                      <strong>Director: </strong> {movieDetail.Director}
-                    </p>
-                    <p>
+                      <strong>Language: </strong> <p>{movieDetail.Language}</p>           
+                      <strong>Year: </strong> <p>{movieDetail.Year}</p>            
+                      <strong>Genre: </strong> <p>{movieDetail.Genre}</p>  
+                      <strong>Director: </strong> {movieDetail.Director}       
                       <strong>Plot: </strong>
                       <p>{movieDetail.Plot}</p>
-                    </p>
                   </Grid>
                 </Grid>
               </Grid>

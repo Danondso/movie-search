@@ -29,7 +29,7 @@ const Movie = ({ movie }) => {
     <Card>
       <CardContent>
         <img alt={movie.Title} src={poster} className={classes.movie}></img>
-        <div className={classes.title}>{movie.Title}</div>
+        <div key={movie.Title} className={classes.title}>{movie.Title}</div>
       </CardContent>
     </Card>
   );
