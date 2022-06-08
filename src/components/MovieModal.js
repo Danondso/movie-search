@@ -67,9 +67,8 @@ const MovieModal = ({ movieDetail, open, handleClose }) => {
                       <strong>Language: </strong> <p>{movieDetail.Language}</p>           
                       <strong>Year: </strong> <p>{movieDetail.Year}</p>            
                       <strong>Genre: </strong> <p>{movieDetail.Genre}</p>  
-                      <strong>Director: </strong> {movieDetail.Director}       
-                      <strong>Plot: </strong>
-                      <p>{movieDetail.Plot}</p>
+                      <strong>Director: </strong> <p>{movieDetail.Director}</p>      
+                      <strong>Plot: </strong> <p>{movieDetail.Plot}</p>
                   </Grid>
                 </Grid>
               </Grid>
